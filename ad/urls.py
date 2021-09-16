@@ -11,5 +11,5 @@ urlpatterns = [
     #Каталог другое
     path('other/', views.other, name='other'),
     #Создать объявление с категорией "другое"
-    path('create_other', views.create_other, name='create_other'),
+    path('create_other/', views.create_other, name='create_other'),
 ]

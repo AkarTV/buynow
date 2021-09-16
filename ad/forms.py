@@ -1,6 +1,7 @@
 from django.db.models.base import Model
+#from django.forms.widgets import NumberInput
 from . models import *
-from django.forms import ModelForm, TextInput, Textarea
+from django.forms import ModelForm, TextInput, Textarea, NumberInput
 
 class OtherForm(ModelForm):
     class Meta:
@@ -9,4 +10,5 @@ class OtherForm(ModelForm):
         widgets = {
             'title': TextInput(attrs={'class': 'form-control', 'placeholder': 'Введите заголовок объявления'}),
             'text': Textarea(attrs={'class': 'form-control', 'placeholder': 'Введите описание объявления'}),
+            'max_price': NumberInput(attrs={'class': 'form-control', 'placeholder': 'Введите максимальную цену (РУБ)'})
             }
