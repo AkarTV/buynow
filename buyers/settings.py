@@ -33,6 +33,9 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     #my_aps
     'ad',
+    'category_transport',
+    'category_real_estate',
+    'category_other',
     #default aps
     'django.contrib.admin',
     'django.contrib.auth',
