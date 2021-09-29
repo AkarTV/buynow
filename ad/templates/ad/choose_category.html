@@ -8,9 +8,33 @@
     <div class="mb-3 d-sm-flex justify-content-sm-center">
         <h1>Выберите категорию</h1>
     </div>
-    <div class="container">
-        <a href="{% url 'create_transport' %}">Транспорт</a><br>
-        <a href="{% url 'create_real_estate' %}">Недвижимость</a><br>
-        <a href="{% url 'create_other' %}">Другое</a>
+    <div class="list-group">
+        <a href="{% url 'create_transport' %}" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+            <img src="https://github.com/twbs.png" alt="twbs" class="rounded-circle flex-shrink-0" width="32" height="32">
+            <div class="d-flex gap-2 w-100 justify-content-between">
+              <div>
+                <h6 class="mb-0">Транспорт</h6>
+                <p class="mb-0 opacity-75">Легковые авто, грузовая техника, мототранспорт и др.</p>
+              </div>
+            </div>
+          </a>
+          <a href="{% url 'create_real_estate' %}" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+            <img src="https://github.com/twbs.png" alt="twbs" class="rounded-circle flex-shrink-0" width="32" height="32">
+            <div class="d-flex gap-2 w-100 justify-content-between">
+              <div>
+                <h6 class="mb-0">Недвижимость</h6>
+                <p class="mb-0 opacity-75">Жилые и нежилые помещения (квартиры, частные дома, офисы и др.)</p>
+              </div>
+            </div>
+          </a>
+          <a href="{% url 'create_other' %}" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+            <img src="https://github.com/twbs.png" alt="twbs" class="rounded-circle flex-shrink-0" width="32" height="32">
+            <div class="d-flex gap-2 w-100 justify-content-between">
+              <div>
+                <h6 class="mb-0">Другое</h6>
+                <p class="mb-0 opacity-75">Любой объект, не входящий в представленные категории.</p>
+              </div>
+            </div>
+          </a>
     </div>
 {% endblock %}
