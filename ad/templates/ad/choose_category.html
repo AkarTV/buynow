@@ -1,0 +1,16 @@
+{% extends 'ad/base.html' %}
+
+{% block title %}
+Создать объявление
+{% endblock %}
+
+{% block content %}
+    <div class="mb-3 d-sm-flex justify-content-sm-center">
+        <h1>Выберите категорию</h1>
+    </div>
+    <div class="container">
+        <a href="{% url 'create_transport' %}">Транспорт</a><br>
+        <a href="{% url 'create_real_estate' %}">Недвижимость</a><br>
+        <a href="{% url 'create_other' %}">Другое</a>
+    </div>
+{% endblock %}

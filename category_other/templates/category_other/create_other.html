@@ -1,16 +1,4 @@
-{% extends 'ad/base.html' %}
+{% extends 'ad/base_create_form.html' %}
 
-{% block title %}
-Создать объявление
-{% endblock %}
-
-{% block content %}
-    <h1>Создать объявление</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.title }}<br>
-        {{ form.text }}<br>
-        {{ form.max_price }}<br>
-        <button type="submit" class="btn btn-success">Создать</button>
-    </form>
+{% block extend_content %}
 {% endblock %}

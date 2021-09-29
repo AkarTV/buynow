@@ -15,5 +15,7 @@ def main(request):
     context = {'ads': result}
     return render(request, 'ad/main.html', context)
 
+def choose_category(request):
+    return render(request, 'ad/choose_category.html')
 
 

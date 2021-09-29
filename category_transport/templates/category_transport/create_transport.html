@@ -1,0 +1,28 @@
+{% extends 'ad/base_create_form.html' %}
+
+{% block extend_content %}
+<div class="row g-3 align-items-center mb-3">
+    <div class="col-auto">
+        <label class="col-form-label" for="brand_input"><b>Марка авто: </b></label>
+    </div>
+    <div class="col-auto">
+        {{ form.brand }}
+    </div>
+</div>
+<div class="row g-3 align-items-center mb-3">
+    <div class="col-auto">
+        <label class="col-form-label" for="brand_input"><b>Модель авто: </b></label>
+    </div>
+    <div class="col-auto">
+        {{ form.model }}
+    </div>
+</div>
+<div class="row g-3 align-items-center mb-3">
+    <div class="col-auto">
+        <label class="col-form-label" for="brand_input"><b>Год выпуска: </b></label>
+    </div>
+    <div class="col-auto">
+        {{ form.year }}
+    </div>
+</div>
+{% endblock %}
