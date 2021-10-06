@@ -19,3 +19,9 @@ def create_other(request):
             return redirect('main')
     context = {'form': form}
     return render(request, 'category_other/create_other.html', context)
+
+
+def show_other_ad(request, category_other_id):
+    ad = Other_Ad.objects.get(id=category_other_id)
+    context = {'other_ad' : ad}
+    return render(request, 'category_other/show_other.html', context)

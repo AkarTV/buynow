@@ -18,3 +18,8 @@ def create_real_estate(request):
             return redirect('main')
     context = {'form': form}
     return render(request, 'category_real_estate/create_real_estate.html', context)
+
+def show_real_estate_ad(request, real_estate_id):
+    ad = Real_Estate_Ad.objects.get(id=real_estate_id)
+    context = {'ad' : ad}
+    return render(request, 'category_real_estate/show_real_estate_ad.html', context)

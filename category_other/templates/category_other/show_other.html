@@ -1,0 +1,23 @@
+{% extends 'ad/base.html' %}
+{% load humanize %}
+
+{% block title %}
+{{ other_ad.title }}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <h3>{{ other_ad.title }}</h3>
+            <p>Опубликовано {{ other_ad.date }}</p>
+            <hr>
+            <h6>{{ other_ad.text }}</h6>
+            <div>
+                <p style="display: inline-block;">Максимальная цена:</p> 
+                <h4 style="display: inline-block; ">{{ other_ad.max_price | intcomma }} руб.</h4>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

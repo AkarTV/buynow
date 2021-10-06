@@ -1,0 +1,8 @@
+.custom-a {
+    color: black;
+    text-decoration: none;
+}
+.custom-a:hover {
+    color: black;
+    background-color: rgba(201, 194, 207, 0.445);
+}

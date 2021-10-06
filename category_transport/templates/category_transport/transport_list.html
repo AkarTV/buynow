@@ -5,5 +5,37 @@
 {% endblock %}
 
 {% block content %}
-    {% include 'ad/list_view.html' %}
+<div class="mb-1 d-sm-flex justify-content-sm-center">
+  <h2>Транспорт</h2>
+</div>
+<div class="mb-3 d-sm-flex justify-content-sm-center">
+  <a class="btn btn-primary btn-lg px-3 gap-3" href="{% url 'create_transport' %}" >Создать объявление</a>
+</div>
+
+<div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% for ad in ads %}
+          <div class="col">
+            <div class="card shadow-sm">
+              <a class="custom-a" href="{% url 'show_transport_ad' ad.id %}">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h4 class="card-title">{{ ad.title }}</h4>
+                    <p class="card-text text-muted">{{ ad.category }}</p>
+                  </div>
+                      <h6 class="card-subtitle mb-2 text-muted">{{ ad.date }}</h6> 
+                    <p class="card-text" >{{ ad.text|truncatewords:10 }}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="card-text">Максимальная цена: {{ ad.max_price }} руб</h5>
+                    </div>
+                </div>
+              </a> 
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
 {% endblock %}

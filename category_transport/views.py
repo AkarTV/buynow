@@ -19,3 +19,8 @@ def create_transport(request):
             return redirect('main')
     context = {'form': form}
     return render(request, 'category_transport/create_transport.html', context)
+
+def show_transport_ad(request, transport_id):
+    ad = Transport_Ad.objects.get(id=transport_id)
+    context = {'ad' : ad}
+    return render(request, 'category_transport/show_transport_ad.html', context)

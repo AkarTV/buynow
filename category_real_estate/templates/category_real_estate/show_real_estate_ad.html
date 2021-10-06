@@ -1,0 +1,31 @@
+{% extends 'ad/base.html' %}
+{% load humanize %}
+
+{% block title %}
+{{ ad.title }}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <h3>{{ ad.title }}</h3>
+            <p>Опубликовано {{ ad.date }}</p>
+            <hr>
+            <h6>{{ ad.text }}</h6>
+            <div>
+                <p style="display: inline-block;">Желаемая площадь: </p> 
+                <h5 style="display: inline-block; ">{{ ad.square }} м<sup>2</sup></h5>
+            </div>
+            <div>
+                <p style="display: inline-block;">Район поиска: </p> 
+                <h5 style="display: inline-block; ">{{ ad.location }}</h5>
+            </div>
+            <div>
+                <p style="display: inline-block;">Максимальная цена: </p> 
+                <h4 style="display: inline-block; ">{{ ad.max_price | intcomma }} руб.</h4>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

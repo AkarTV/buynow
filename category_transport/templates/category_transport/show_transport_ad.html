@@ -1,0 +1,35 @@
+{% extends 'ad/base.html' %}
+{% load humanize %}
+
+{% block title %}
+{{ad.title}}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <h3>{{ ad.title }}</h3>
+            <p>Опубликовано {{ ad.date }}</p>
+            <hr>
+            <h6>{{ ad.text }}</h6>
+            <div>
+                <p style="display: inline-block;">Марка: </p> 
+                <h5 style="display: inline-block; ">{{ ad.brand }}</h5>
+            </div>
+            <div>
+                <p style="display: inline-block;">Модель: </p> 
+                <h5 style="display: inline-block; ">{{ ad.model }}</h5>
+            </div>
+            <div>
+                <p style="display: inline-block;">Год выпуска: </p> 
+                <h5 style="display: inline-block; ">{{ ad.year }}</h5>
+            </div>
+            <div>
+                <p style="display: inline-block;">Максимальная цена: </p> 
+                <h4 style="display: inline-block; ">{{ ad.max_price | intcomma }} руб.</h4>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
