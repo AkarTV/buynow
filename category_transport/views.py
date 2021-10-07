@@ -1,26 +1,17 @@
-from django.shortcuts import render, redirect
-from . models import Transport_Ad
-from . forms import TransportForm
+from django.shortcuts import render
+from .services import get_transport_ads_dict, get_transport_ad_form, get_transport_ad_from_DB
 
-
-#Transport page view
 def transport(request):
-    items = Transport_Ad.objects.order_by('-date')
-    context = {'ads': items}
+    '''return the page with the list of all transport category ads'''
+    context = get_transport_ads_dict()
     return render(request, 'category_transport/transport_list.html', context)
 
 def create_transport(request):
-    if request.method != 'POST':
-        form = TransportForm()
-    else:
-        form = TransportForm(data=request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('main')
-    context = {'form': form}
+    '''return the page with "transport category" ad form to create new "transport" ad'''
+    context = get_transport_ad_form(request)
     return render(request, 'category_transport/create_transport.html', context)
 
 def show_transport_ad(request, transport_id):
-    ad = Transport_Ad.objects.get(id=transport_id)
-    context = {'ad' : ad}
+    '''return the page of the curent ad by its id'''
+    context = get_transport_ad_from_DB(transport_id)
     return render(request, 'category_transport/show_transport_ad.html', context)

@@ -1,6 +1,7 @@
 from django.forms import ModelForm, TextInput, Textarea, NumberInput
 
 class CreateForm(ModelForm):
+    '''Base class for the ad form'''
     class Meta:
         fields = ['title', 'text', 'max_price']
         widgets = {

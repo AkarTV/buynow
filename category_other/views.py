@@ -1,27 +1,19 @@
-from django.shortcuts import render, redirect
-from . models import Other_Ad
-from . forms import OtherForm
+from django.shortcuts import render
+from .services import get_other_ads_dict, get_other_ad_form, get_other_ad_from_DB
 
-#Other page view
 def other(request):
-    items = Other_Ad.objects.order_by('-date')
-    context = {'ads': items}
+    '''return the page with the list of all other category ads'''
+    context = get_other_ads_dict()
     return render(request, 'category_other/other.html', context)
 
 
 def create_other(request):
-    if request.method != 'POST':
-        form = OtherForm()
-    else:
-        form = OtherForm(data=request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('main')
-    context = {'form': form}
+    '''return the page with "other category" ad form to create new "other" ad'''
+    context = get_other_ad_form(request)
     return render(request, 'category_other/create_other.html', context)
 
 
 def show_other_ad(request, category_other_id):
-    ad = Other_Ad.objects.get(id=category_other_id)
-    context = {'other_ad' : ad}
+    '''return the page of the curent ad by its id'''
+    context = get_other_ad_from_DB(category_other_id)
     return render(request, 'category_other/show_other.html', context)

@@ -4,6 +4,7 @@ from . models import Transport_Ad
 from ad.forms import CreateForm, TextInput, NumberInput
 
 class TransportForm(CreateForm):
+    '''Category transport ad form'''
     class Meta(CreateForm.Meta):
         model = Transport_Ad
         fields = CreateForm.Meta.fields + ['brand', 'model', 'year']

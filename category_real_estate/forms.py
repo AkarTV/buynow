@@ -3,6 +3,7 @@ from .models import Real_Estate_Ad
 from ad.forms import CreateForm, TextInput, NumberInput
 
 class RealEstateForm(CreateForm):
+    '''Category real estate ad form'''
     class Meta(CreateForm.Meta):
         model = Real_Estate_Ad
         fields = CreateForm.Meta.fields + ['square', 'location']
