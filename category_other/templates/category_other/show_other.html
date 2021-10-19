@@ -9,13 +9,16 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8">
-            <h3>{{ other_ad.title }}</h3>
-            <p>Опубликовано {{ other_ad.date }}</p>
+            <h3>{{ ad.title }}</h3>
+            <p>Опубликовано {{ ad.date }}</p>
             <hr>
-            <h6>{{ other_ad.text }}</h6>
+            <h6>{{ ad.text }}</h6>
             <div>
                 <p style="display: inline-block;">Максимальная цена:</p> 
-                <h4 style="display: inline-block; ">{{ other_ad.max_price | intcomma }} руб.</h4>
+                <h4 style="display: inline-block; ">{{ ad.max_price | intcomma }} руб.</h4>
+            </div>
+            <div>
+                <a href="{% url 'edit_other_ad' ad.id %}">Изменить</a>
             </div>
         </div>
     </div>

@@ -29,6 +29,9 @@
                 <p style="display: inline-block;">Максимальная цена: </p> 
                 <h4 style="display: inline-block; ">{{ ad.max_price | intcomma }} руб.</h4>
             </div>
+            <div>
+                <a href="{% url 'edit_transport_ad' ad.id %}">Изменить</a>
+            </div>
         </div>
     </div>
 </div>

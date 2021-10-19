@@ -31,12 +31,12 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    #my_aps
+    #my_apps
     'ad',
     'category_transport',
     'category_real_estate',
     'category_other',
-    #default aps
+    #default apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

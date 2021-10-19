@@ -1,3 +1,4 @@
+from django.forms.models import ModelForm
 from category_transport.models import Transport_Ad
 from category_real_estate.models import Real_Estate_Ad
 from category_other.models import Other_Ad
@@ -23,3 +24,5 @@ def show_ad(request, category: str, ad_id):
         return show_real_estate_ad(request, ad_id)
     elif category == 'Другое':
         return show_other_ad(request, ad_id)
+
+
