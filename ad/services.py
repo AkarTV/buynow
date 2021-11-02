@@ -16,13 +16,4 @@ def get_all_ads():
     result = sorted(chain(transport, houses, other), key=attrgetter('date'), reverse=True)
     return {'ads' : result}
 
-def show_ad(request, category: str, ad_id):
-    '''return the category view func'''
-    if category == 'Транспорт':
-        return show_transport_ad(request, ad_id)
-    elif category == 'Недвижимость':
-        return show_real_estate_ad(request, ad_id)
-    elif category == 'Другое':
-        return show_other_ad(request, ad_id)
-
 
