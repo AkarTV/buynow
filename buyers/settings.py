@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'category_transport',
     'category_real_estate',
     'category_other',
+    'users',
     #default apps
     'django.contrib.admin',
     'django.contrib.auth',
@@ -135,3 +136,5 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGOUT_REDIRECT_URL = 'main'

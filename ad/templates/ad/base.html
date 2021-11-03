@@ -30,8 +30,9 @@
                 </ul>
             </li>
             <li><a href="#" class="nav-link px-2 link-dark">О нас</a></li>
-            <li><a href="#" class="nav-link px-2 link-dark">Регистрация</a></li>
-            <li><a href="{% url 'choose_category' %}" class="nav-link px-2 link-dark">Добавить объявление</a></li>
+            <li><a href="{% url 'registration' %}" class="nav-link px-2 link-dark">Регистрация</a></li>
+            <li><a href="{% url 'login' %}" class="nav-link px-2 link-dark">Войти</a></li>
+            <li><a href="{% url 'logout' %}" class="nav-link px-2 link-dark">Выйти</a></li>
           </ul>
 
           <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
@@ -50,6 +51,9 @@
               <li><a class="dropdown-item" href="#">Sign out</a></li>
             </ul>
           </div>
+          {% if user.is_authenticated %}
+          <li><p class="nav-link px-2 link-secondary">{{ user.username }}</p></li>
+          {% endif%}
         </div>
       </div>
     </header>

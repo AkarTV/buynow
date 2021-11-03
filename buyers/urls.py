@@ -21,5 +21,6 @@ urlpatterns = [
     path('Транспорт/', include('category_transport.urls')),
     path('Недвижимость/', include('category_real_estate.urls')),
     path('Другое/', include('category_other.urls')),
+    path('users/', include('users.urls')),
     path('admin/', admin.site.urls),
 ]
