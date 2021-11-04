@@ -25,9 +25,11 @@
                 <p style="display: inline-block;">Максимальная цена: </p> 
                 <h4 style="display: inline-block; ">{{ ad.max_price | intcomma }} руб.</h4>
             </div>
+            {% if ad.owner == user %}
             <div>
                 <a href="{% url 'edit_real_estate_ad' ad.id %}">Изменить</a>
             </div>
+            {% endif %}
         </div>
     </div>
 </div>

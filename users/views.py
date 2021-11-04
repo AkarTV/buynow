@@ -17,7 +17,7 @@ def register(request):
             new_user = base_form.save()
             extend_form.save()
             custom_form.save()
-            login(request, new_user)
+            login(request, new_user)    
             return redirect('main')
     context = {'form': base_form, 'extend_form': extend_form, 'custom_form': custom_form}
     return render(request, 'registration/registration.html', context)
