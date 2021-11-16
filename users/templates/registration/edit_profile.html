@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<form method="post" action="{% url 'registration' %}">
+<form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <table>
         <tr>
@@ -10,24 +10,27 @@
             <td>{{ user.username }}</td>
         </tr>
         <tr>
-            <td>{{ extend_form.first_name.label_tag }}</td>
-            <td>{{ extend_form.first_name }}</td>
+            <td>{{ user_form.first_name.label_tag }}</td>
+            <td>{{ user_form.first_name }}</td>
         </tr>
         <tr>
-            <td>{{ extend_form.last_name.label_tag }}</td>
-            <td>{{ extend_form.last_name }}</td>
+            <td>{{ user_form.last_name.label_tag }}</td>
+            <td>{{ user_form.last_name }}</td>
         </tr>
         <tr>
-            <td>{{ extend_form.email.label_tag }}</td>
-            <td>{{ extend_form.email }}</td>
+            <td>{{ user_form.email.label_tag }}</td>
+            <td>{{ user_form.email }}</td>
         </tr>
         <tr>
-            <td>{{ custom_form.phone_number.label_tag }}</td>
-            <td>{{ custom_form.phone_number }}</td>
+            <td>{{ user_form.phone_number.label_tag }}</td>
+            <td>{{ user_form.phone_number }}</td>
         </tr>
         <tr>
-            <td>{{ custom_form.avatar.label_tag }}</td>
-            <td>{{ custom_form.avatar }}</td>
+            <td>{{ user_form.avatar.label_tag }}</td>
+            <td>{{ user_form.avatar }}</td>
+        </tr>
+        <tr>
+            <td><a href="{% url 'password_change' %}">Изменить пароль</a></td>
         </tr>
     </table>
     <input type="submit" value="Сохранить">

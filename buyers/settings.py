@@ -142,7 +142,10 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+AUTH_USER_MODEL = 'users.User'
+
 LOGIN_URL = 'login'
 LOGOUT_REDIRECT_URL = 'main'
+
 
 PHONENUMBER_DEFAULT_REGION = 'RU'

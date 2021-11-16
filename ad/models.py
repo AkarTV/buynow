@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.conf import settings
 
 class Ad(models.Model):
     '''Base abstract class for the DB model. Any category model must inherit from this class'''
@@ -8,7 +9,7 @@ class Ad(models.Model):
     date = models.DateTimeField('Дата и время', auto_now_add=True)
     max_price = models.PositiveIntegerField('Максимальная цена')
     category = ''
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     class Meta:
         abstract = True

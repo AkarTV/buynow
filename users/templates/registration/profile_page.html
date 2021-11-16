@@ -1,14 +1,21 @@
 {% extends 'ad/base.html' %}
 
 {% block content %}
-
-<div>
-    <a href="{% url 'edit_profile' %}">редактировать</a>
-    <p>Логин: <b>{{ user.username }}</b></p>
-    <p>Имя: <b>{{ user.first_name }}</b></p>
-    <p>Фамилия: <b>{{ user.last_name }}</b></p>
-    <p>Email: <b>{{ user.email }}</b></p>
-    <p>Номер телефона: <b>{{ user.customer.phone_number }}</b></p>
+<div style="display: inline-block;">
+    {% if user.avatar %}
+    <div>
+        <img height="300" width="200" src="{{ user.avatar.url }}">
+    </div>
+    {% endif %}
+    <div>
+        <a href="{% url 'edit_profile' %}">редактировать</a>
+        <p>Логин: <b>{{ user.username }}</b></p>
+        <p>Имя: <b>{{ user.first_name }}</b></p>
+        <p>Фамилия: <b>{{ user.last_name }}</b></p>
+        <p>Email: <b>{{ user.email }}</b></p>
+        <p>Номер телефона: <b>{{ user.phone_number }}</b></p>
+    </div>
 </div>
+
 
 {% endblock %}

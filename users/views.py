@@ -1,26 +1,19 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
-from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .forms import UserForm, CustomerForm
+from .forms import UserForm
 
 def register(request):
     '''Register new user'''
     if request.method != 'POST':
         base_form = UserCreationForm()
-        extend_form = UserForm()
-        custom_form = CustomerForm()
     else:
         base_form = UserCreationForm(data = request.POST)
-        extend_form = UserForm(data = request.POST)
-        custom_form = CustomerForm(data= request.POST)
-        if base_form.is_valid() and extend_form.is_valid() and custom_form.is_valid():
+        if base_form.is_valid():
             new_user = base_form.save()
-            extend_form.save()
-            custom_form.save()
-            login(request, new_user)    
+            login(request, new_user)   
             return redirect('main')
-    context = {'form': base_form, 'extend_form': extend_form, 'custom_form': custom_form}
+    context = {'form': base_form}
     return render(request, 'registration/registration.html', context)
 
 def profile_page(request):
@@ -31,14 +24,15 @@ def profile_page(request):
 def edit_profile(request):
     '''Return the user profie editing page'''
     if request.method != 'POST':
-        extend_form = UserForm(instance=request.user)
-        custom_form = CustomerForm(instance=request.user.customer)
+        user_form = UserForm(instance=request.user)
     else:
-        extend_form = UserForm(data=request.POST)
-        custom_form = CustomerForm(data=request.POST)
-        if extend_form.is_valid() and custom_form.is_valid():
-            extend_form.save()
-            custom_form.save()
+        user_form = UserForm(request.POST, request.FILES, instance=request.user)
+        if user_form.is_valid():
+            user_form.save()
             return redirect('profile')
-    context = {'extend_form': extend_form, 'custom_form': custom_form}
+    context = {'user_form': user_form}
     return render(request, 'registration/edit_profile.html', context)
+    
+
+def password_succes(request):
+    return render(request, 'registration/password_succes.html')
